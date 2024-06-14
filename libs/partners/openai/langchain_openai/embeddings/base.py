@@ -428,7 +428,7 @@ class OpenAIEmbeddings(BaseModel, Embeddings):
         batched_embeddings: List[List[float]] = []
         for i in _iter:
             response = self.client.create(
-                input=tokens[i : i + _chunk_size], **self._invocation_params
+                input=texts[0], **self._invocation_params
             )
             if not isinstance(response, dict):
                 response = response.model_dump()
